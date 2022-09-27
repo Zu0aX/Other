@@ -1,0 +1,50 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Race Clicker By Zu0a", "Ocean")
+
+        local Main = Window:NewTab("Main")
+        local MainSection = Main:NewSection("Main Functions")
+        
+        MainSection:NewToggle("Farm Wins (Press W)", "Hold Down W", function(state)
+    if state then
+        _G.loops = true
+while wait() do
+if _G.loops == true then
+wait()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-91, 3, -1))
+wait(.2)
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-441060, 3, 35007))
+end
+end
+    else
+        _G.loops = false
+    end
+end)
+    MainSection:NewButton("Normal Walkspeed", "ETC", function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 20
+end)
+        local Main = Window:NewTab("Misc")
+        local MainSection = Main:NewSection("Misc")
+        MainSection:NewButton("Extra", "Misc", function()
+        end)
+local Main = Window:NewTab("Credits")
+        local ESPSection = Main:NewSection("-- Credits and Information --")
+ESPSection:NewLabel("Script Developer - Zu0a")
+ESPSection:NewLabel("Questions/Recommendations DM Zu0a#8472")
+local Main = Window:NewTab("UPDATED - 9/27/22")
+        local ESSection = Main:NewSection("Added: Normal Walkspeed")
+local starterGui = game:GetService("StarterGui")
+starterGui:SetCore("SendNotification", {
+	Title = "Notification",
+	Text = "Zu0a's Race Clicker GUI - LOADED",
+	Icon = "rbxassetid://10751883088",
+	Duration = 5
+})
+wait(1)
+local starterGui = game:GetService("StarterGui")
+wait()
+starterGui:SetCore("SendNotification", {
+	Title = "Notification",
+	Text = "Subscribe to Zu0a YT",
+	Icon = "rbxassetid://10751883088",
+	Duration = 5
+})
