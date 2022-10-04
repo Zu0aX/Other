@@ -1,0 +1,62 @@
+local blacklistNames = {"Cow","Horse","Deer","Bison","Bear","UndeadBear","Wendigo","Gator"}
+local animalMaxHP = {
+    ["Bison"] = 150
+}
+
+function addAnimal(animal)
+    local animalHealth
+    local success
+    repeat wait()
+        success = pcall(function()
+            animalHealth = animal.Health
+        end)
+    until success
+    local nameEsp = Drawing.new("Text"); nameEsp.Text = tostring(animal); nameEsp.Color = Color3.fromRGB(255, 255, 255); nameEsp.Center = true; nameEsp.Outline = true; nameEsp.OutlineColor = Color3.new(0,0,0); nameEsp.Font = 0
+    local healthEsp = Drawing.new("Text"); healthEsp.Center = true; healthEsp.Outline = true; healthEsp.OutlineColor = Color3.new(0,0,0); healthEsp.Font = 0
+
+    local RenderStepped
+    RenderStepped = game:GetService("RunService").RenderStepped:Connect(function()
+        if animalHealth.Value <= 0 then nameEsp.Visible = false; healthEsp.Visible = false return end
+        healthEsp.Text = tostring(math.ceil(animalHealth.Value))
+        local animalPos, onScreen = game:GetService("Workspace").CurrentCamera:WorldToViewportPoint(animal.Body.CFrame.Position)
+        if onScreen then
+            noerror = pcall(function()
+                if animalHealth.Value > animalMaxHP[tostring(animal.Name)] * 0.66 then
+                    healthEsp.Color = Color3.fromRGB(0, 255, 0)
+                elseif animalHealth.Value > animalMaxHP[tostring(animal.Name)] * 0.33 then
+                    healthEsp.Color = Color3.fromRGB(255, 255, 0)
+                else
+                    healthEsp.Color = Color3.fromRGB(255, 0, 0)
+                end
+                nameEsp.Position = Vector2.new(animalPos.X, animalPos.Y - 25)
+                healthEsp.Position = nameEsp.Position + Vector2.new(0, -15)
+                nameEsp.Size = 1000 / animalPos.Z + 15
+                healthEsp.Size = nameEsp.Size
+                nameEsp.Visible = true
+                healthEsp.Visible = true
+            end)
+        else
+            nameEsp.Visible = false
+            healthEsp.Visible = false
+        end
+    end)
+    local ChildRemoved
+    ChildRemoved = game:GetService("Workspace")["WORKSPACE_Entities"].Animals.ChildRemoved:Connect(function(child)
+        if child == animal then
+            nameEsp:Remove()
+            healthEsp:Remove()
+            RenderStepped:Disconnect()
+
+            ChildRemoved:Disconnect()
+        end
+    end)
+end
+
+for _,animal in ipairs(game:GetService("Workspace")["WORKSPACE_Entities"].Animals:GetChildren()) do
+    addAnimal(animal)
+end
+
+game:GetService("Workspace")["WORKSPACE_Entities"].Animals.ChildAdded:Connect(function(animal)
+    wait(10)
+    addAnimal(animal)
+end)
