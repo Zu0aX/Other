@@ -1652,7 +1652,7 @@ local library library = {
                         min = 0,
                         max = 100,
                         value = 0,
-                        color = Color3.fromRGB(32, 59, 97),
+                        color = Color3.fromRGB(255, 80, 80),
                         rounding = options.rounding,
                         animation = options.animation,
                     }).handle(sliderOptions)
@@ -1987,9 +1987,9 @@ local library library = {
                     dropdownOptions = settings.new({
                         text = "New Dropdown",
                         size = 150,
-                        color = Color3.fromRGB(32, 59, 97),
+                        color = Color3.fromRGB(255, 80, 80),
                         rounding = options.rounding,
-                        selectioncolor = Color3.fromRGB(32, 59, 97),
+                        selectioncolor = Color3.fromRGB(255, 60, 60),
                     }).handle(dropdownOptions)
 
                     local dropdownButton = new("Dropdown")
