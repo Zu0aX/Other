@@ -2184,7 +2184,7 @@ local library library = {
                             local keycode = inputObject.KeyCode
                             if keycode == Enum.KeyCode.LeftShift then
                                 shift = true
-                            end
+                            end 
                             if canSearch then
                                 if keycode == Enum.KeyCode.Backspace then
                                     backspace = true
