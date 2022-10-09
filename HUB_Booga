@@ -156,7 +156,7 @@ do -- Load items
     Folder_2.BackgroundTransparency = 1.000
     Folder_2.Size = UDim2.new(1, 0, 0, 20)
     Folder_2.Image = "rbxassetid://3570695787"
-    Folder_2.ImageColor3 = Color3.fromRGB(41, 74, 122)
+    Folder_2.ImageColor3 = Color3.fromRGB(255, 35, 35)
     Folder_2.ScaleType = Enum.ScaleType.Slice
     Folder_2.SliceCenter = Rect.new(100, 100, 100, 100)
     Folder_2.SliceScale = 0.050
