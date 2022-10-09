@@ -469,7 +469,7 @@ do -- Load items
 
     Slider_2.Name = "Slider"
     Slider_2.Parent = Inner
-    Slider_2.BackgroundColor3 = Color3.fromRGB(49, 88, 146)
+    Slider_2.BackgroundColor3 = Color3.fromRGB(253, 80, 80)
     Slider_2.BorderSizePixel = 0
     Slider_2.Position = UDim2.new(0, 10, 0, 0)
     Slider_2.Size = UDim2.new(0, 5, 1, 0)
@@ -998,7 +998,7 @@ do -- Load items
 
     Indicator_2.Name = "Indicator"
     Indicator_2.Parent = Saturation
-    Indicator_2.BackgroundColor3 = Color3.fromRGB(49, 88, 146)
+    Indicator_2.BackgroundColor3 = Color3.fromRGB(253, 80, 80)
     Indicator_2.BorderSizePixel = 0
     Indicator_2.Size = UDim2.new(1, 0, 0, 2)
 
