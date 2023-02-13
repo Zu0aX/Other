@@ -1,0 +1,55 @@
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Window = Library.CreateLib("Empire Roleplay - Zu0axVolt", "Sentinel")
+    
+    -- Main
+    
+    
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Main Functions")
+
+
+MainSection:NewButton("Hitbox Extender", "Misc", function()
+     -- the wait time before reexecuting
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local SIZE = Vector3.one * 6.2
+
+for _, v in ipairs(workspace:GetChildren()) do
+    if v.Name ~= tostring(LocalPlayer.UserId) then -- make sure ur not changing ur own head's size
+        local head = v:FindFirstChild("Head")
+        if head then -- give me head -- yes but for exploiting is diffent
+            head.Size = SIZE
+            head.Transparency = 0.5
+            game.Players.LocalPlayer.Character.Head.Size = Vector3.new(1, 1, 1)
+            game.Players.LocalPlayer.Character.Head.Transparency = 0
+        end
+    end
+end
+end)
+
+MainSection:NewButton("Dwarf Yourself", "Misc", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(1, 1, 1)
+end)
+
+MainSection:NewButton("Speed Bypass", "Misc", function()
+    local walkSpeed = 32
+ 
+ 
+ 
+local gmt = getrawmetatable(game)
+ 
+setreadonly(gmt, false)
+ 
+local oldindex = gmt.index
+ 
+gmt.index = newcclosure(function(self,b)
+ 
+if b == "WalkSpeed" then
+ 
+return 16
+ 
+end
+ 
+return oldindex(self,b)
+ 
+end)
+end)
