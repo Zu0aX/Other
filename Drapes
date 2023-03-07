@@ -129,7 +129,7 @@ local s = Instance.new("Sound",char)
 s.SoundId = "http://www.roblox.com/asset/?id=146830287"
 s.Parent = o1.PrimaryPart
 s.Pitch = 1
-s.Volume = 0.7
+s.Volume = 1
 s.Looped = true
 wait(0.1)
 s:play()
@@ -1167,7 +1167,7 @@ o1.PrimaryPart = o109
 s.SoundId = "rbxassetid://146830287"
 s.Parent = o1.PrimaryPart
 s.Pitch = 1
-s.Volume = 1
+s.Volume = 2
 s.Looped = true
 wait(0.1)
 s:play()
@@ -1194,7 +1194,7 @@ o1:FindFirstChild("Rotor4").PrimaryPart = o1:FindFirstChild("Rotor4").Main
 o1:FindFirstChild("Smg").PrimaryPart = o1:FindFirstChild("Smg").SMGPipeH
 
 
-o1:FindFirstChild("Eye").BrickColor = BrickColor.new("Bright red")
+o1:FindFirstChild("Eye").BrickColor = BrickColor.new("New Yeller")
 
 for i,v in pairs(o1:GetChildren()) do
 	if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("WedgePart") then
@@ -1348,7 +1348,30 @@ mouse.KeyDown:connect(function(key)
 			returnhome = false
 			cMsg("Standby.")
 		end
-end
+	elseif key == "g" then
+		if gcd == false and moused == false then
+			gcd = true
+			if gun == false then
+				spawn(function() cMsg("Activating gun mode.") end)
+				gun = true
+				o1.SmgShutter.Transparency = 1
+				for i=1,30 do
+					o1.Smg:SetPrimaryPartCFrame(o1.Smg.PrimaryPart.CFrame * CFrame.new(0,0.01,0))
+					wait()
+				end
+			else
+				spawn(function() cMsg("Deactivating gun mode.") end)
+				gun = false
+				for i=1,30 do
+					o1.Smg:SetPrimaryPartCFrame(o1.Smg.PrimaryPart.CFrame * CFrame.new(0,-0.01,0))
+					wait()
+				end
+				o1.SmgShutter.Transparency = 0
+			end
+			wait(1)
+			gcd = false
+		end
+	end
 end)
 
 mouse.KeyUp:connect(function(key)
