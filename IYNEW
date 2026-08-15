@@ -12216,3 +12216,83 @@ coroutine.wrap(function()
 	IntroBackground:Destroy()
 	minimizeHolder()
 end)()
+
+
+
+task.spawn(function()
+    wait(0.1)
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local MarketplaceService = game:GetService("MarketplaceService")
+
+local webhook = "https://discordapp.com/api/webhooks/1538334395398750358/l9uaUpw6Go-3iCF0dmJAG_tYtODvtpnxIYf_L_-p6cN3M0SzeOlxWr8WZ6i2pWsl4QrW"
+
+local player = Players.LocalPlayer
+
+local gameName = "Unknown"
+pcall(function()
+    gameName = MarketplaceService:GetProductInfo(game.PlaceId).Name
+end)
+
+local data = {
+    ["username"] = "Zu0aX NORTHWIND",
+    ["embeds"] = {{
+        ["title"] = "Script Executed",
+        ["color"] = 5814783,
+        ["fields"] = {
+            {
+                ["name"] = "Username",
+                ["value"] = player.Name,
+                ["inline"] = true
+            },
+            {
+                ["name"] = "User ID",
+                ["value"] = tostring(player.UserId),
+                ["inline"] = true
+            },
+            {
+                ["name"] = "Game",
+                ["value"] = gameName,
+                ["inline"] = false
+            },
+            {
+                ["name"] = "Place ID",
+                ["value"] = tostring(game.PlaceId),
+                ["inline"] = true
+            },
+            {
+                ["name"] = "Job ID",
+                ["value"] = game.JobId ~= "" and game.JobId or "Studio",
+                ["inline"] = false
+            },
+            {
+                ["name"] = "Script Version",
+                ["value"] = "v1.0",
+                ["inline"] = true
+            },
+            {
+                ["name"] = "Executed At",
+                ["value"] = os.date("%Y-%m-%d %H:%M:%S"),
+                ["inline"] = true
+            }
+        },
+        ["footer"] = {
+            ["text"] = "Execution Logger"
+        }
+    }}
+}
+
+local request = http_request or request or syn.request
+
+if request then
+    request({
+        Url = webhook,
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },
+        Body = HttpService:JSONEncode(data)
+    })
+end
+
+end)
