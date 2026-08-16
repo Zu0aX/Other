@@ -12232,6 +12232,9 @@ local player = Players.LocalPlayer
 -- Whitelist
 local whitelist = {
     ["Zu0a"] = true,
+	["Mugm_W"] = true,
+	["fatheroux"] = true,
+	["DrDouky"] = true,
     ["BaronFretz"] = true
 }
 
