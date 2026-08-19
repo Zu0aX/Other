@@ -12235,6 +12235,7 @@ local whitelist = {
 	["Mugm_W"] = true,
 	["fatheroux"] = true,
 	["DrDouky"] = true,
+	["SmoothMonkey"] = true,
     ["BaronFretz"] = true
 }
 
