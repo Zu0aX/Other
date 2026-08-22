@@ -1,1 +1,7 @@
+local remote = game:GetService("ReplicatedStorage")
+    .DefinEvents
+    :FindFirstChild("InstancePropertyFunction")
 
+if remote then
+    remote.Name = "Zu0aXFunction"
+end
