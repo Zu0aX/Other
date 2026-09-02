@@ -1,7 +1,11 @@
-local remote = game:GetService("ReplicatedStorage")
-    .DefinEvents
-    :FindFirstChild("InstancePropertyFunction")
+local remoteFolder = game:GetService("ReplicatedStorage").DefinEvents
 
-if remote then
-    remote.Name = "Zu0aXFunction"
+local remote1 = remoteFolder:FindFirstChild("InstancePropertyFunction")
+if remote1 then
+    remote1.Name = "Zu0aXFunction"
+end
+
+local remote2 = remoteFolder:FindFirstChild("InstanceReplicateFunction")
+if remote2 then
+    remote2.Name = "Zu0aXFunction2"
 end
